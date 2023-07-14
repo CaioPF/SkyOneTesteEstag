@@ -1,0 +1,8 @@
+C:\Users\User\Documents\Estudos\Desafio\Desafio SkyOne\Teste2\bin\Debug\Teste2.exe.config
+C:\Users\User\Documents\Estudos\Desafio\Desafio SkyOne\Teste2\bin\Debug\Teste2.exe
+C:\Users\User\Documents\Estudos\Desafio\Desafio SkyOne\Teste2\bin\Debug\Teste2.pdb
+C:\Users\User\Documents\Estudos\Desafio\Desafio SkyOne\Teste2\obj\Debug\Teste2.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Estudos\Desafio\Desafio SkyOne\Teste2\obj\Debug\Teste2.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Documents\Estudos\Desafio\Desafio SkyOne\Teste2\obj\Debug\Teste2.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Estudos\Desafio\Desafio SkyOne\Teste2\obj\Debug\Teste2.exe
+C:\Users\User\Documents\Estudos\Desafio\Desafio SkyOne\Teste2\obj\Debug\Teste2.pdb
