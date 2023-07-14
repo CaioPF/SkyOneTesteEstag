@@ -19,41 +19,46 @@ namespace Teste4
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
+        {               
+            if (string.IsNullOrEmpty(textBoxAluno.Text.Trim()))
+            {
+               lblAlunoError.Text = "O Nome é obrigatório";
+            }
+            else
+            {
+               lblAlunoError.Text = "";
+            }
+
+            StatusAluno();
+
+            try
+            {
+                Conexao();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Verifique os valores das Notas");
+            }            
+        }
+
+        public void StatusAluno()
         {
             float nota1;
             float nota2;
             float media;
-            string connectionString = "server=localhost;port=3306;user=root;password=123456;database=dblancamentodenotas;";            
 
-            if (string.IsNullOrEmpty(textBoxAluno.Text.Trim()))
-            {
-                lblAlunoError.Text = "O Nome é obrigatório";
-            }
+            if (float.TryParse(textBoxNota1.Text.Trim(), out nota1));
             else
-            {
-                lblAlunoError.Text = "";
-            }
-
-            if (string.IsNullOrEmpty(textBoxNota1.Text.Trim()))
             {
                 lblNota1Error.Text = "A Nota é obrigatória";
             }
-            else
-            {                
-                lblNota1Error.Text = "";
-            }
 
-            if (string.IsNullOrEmpty(textBoxNota2.Text.Trim()))
+            if (float.TryParse(textBoxNota2.Text.Trim(), out nota2)) ;
+            else
             {
                 lblNota2Error.Text = "A Nota é obrigatória";
             }
-            else
-            {
-                lblNota2Error.Text = "";
-            }
-
-            nota1 = float.Parse(textBoxNota1.Text.Trim());
-            nota2 = float.Parse(textBoxNota2.Text.Trim());
+                        
             media = (nota1 + nota2) / 2;
 
             if (media < 6.5)
@@ -66,6 +71,11 @@ namespace Teste4
                 lblStatus.ForeColor = Color.Green;
                 lblStatus.Text = "Aprovado";
             }
+        }
+
+        public void Conexao()
+        {
+            string connectionString = "server=localhost;port=3306;user=root;password=123456;database=dblancamentodenotas;";
 
             MySqlConnection conn = new MySqlConnection(connectionString);
             string insertQuery = "insert into aluno(aluno, nota1, nota2) values('" + textBoxAluno.Text + "', '" + textBoxNota1.Text + "',  '" + textBoxNota2.Text + "')";
@@ -87,6 +97,11 @@ namespace Teste4
             textBoxAluno.Text = "";
             textBoxNota1.Text = "";
             textBoxNota2.Text = "";
+            lblAlunoError.Text = "";
+            lblNota1Error.Text = "";
+            lblNota2Error.Text = "";
+            lblStatus.ForeColor = Color.DarkGray;
+            lblStatus.Text = "Nota não enviada";
         }
     }
 }
